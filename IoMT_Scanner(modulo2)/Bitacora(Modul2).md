@@ -23,6 +23,7 @@ python3 -m venv venv
 source venv/bin/activate
 
 # 3. Instalar librerías SOLO dentro del entorno
+
 pip install python-nmap
 ```
 

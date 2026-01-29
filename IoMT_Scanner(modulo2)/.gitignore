@@ -3,6 +3,7 @@ Anonymized_*/
 *.zip
 
 # Manifiestos TCIA
+tcia_archivos/
 *.tcia
 
 # Python

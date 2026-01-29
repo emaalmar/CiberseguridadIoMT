@@ -1,0 +1,29 @@
+# Archivos DICOM anonimizados
+Anonymized_*/
+*.zip
+
+# Manifiestos TCIA
+*.tcia
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+dist/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivos DICOM temporales (opcional)
+*.dcm.bak
+temp_*.dcm

@@ -28,3 +28,11 @@ dist/
 # Archivos DICOM temporales (opcional)
 *.dcm.bak
 temp_*.dcm
+
+*.crt
+*.key
+
+*.conf
+
+passwordfile
+whitelist.json

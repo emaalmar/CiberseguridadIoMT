@@ -1,4 +1,3 @@
-import hl7
 import datetime
 import socket
 import ssl
@@ -26,7 +25,7 @@ PUERTO_SERVIDOR = 6662 # Puerto seguro
 CERT_FILE = 'hospital.crt' # Necesitamos el certificado para verificar que el server es quien dice ser
 
 try:
-    print(f"[1] Preparando contexto de seguridad...")
+    print("[1] Preparando contexto de seguridad...")
     # Creamos un contexto para CLIENTE
     context = ssl.create_default_context(ssl.Purpose.SERVER_AUTH)
     
@@ -48,7 +47,7 @@ try:
     # Ahora nos conectamos usando el tubo seguro
     conn_segura.connect((IP_SERVIDOR, PUERTO_SERVIDOR))
     
-    print(f"[+] ¡Túnel TLS establecido!")
+    print("[+] ¡Túnel TLS establecido!")
     print(f"    Versión: {conn_segura.version()}")
     
     # Enviar datos

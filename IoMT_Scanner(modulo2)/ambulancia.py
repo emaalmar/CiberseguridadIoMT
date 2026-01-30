@@ -36,7 +36,7 @@ import sys
 import os
 import glob
 from pynetdicom import AE, debug_logger
-from pynetdicom.sop_class import CTImageStorage
+from pynetdicom.sop_class import CTImageStorage as CT_IMAGE_STORAGE
 
 # ═══════════════════════════════════════════════════════════════════════════
 # OPCIONAL: Descomenta para ver TODOS los detalles técnicos del envío
@@ -233,7 +233,7 @@ print("\n[.] Preparando comunicación DICOM...")
 ae = AE()
 
 # Declarar: "Soy capaz de ENVIAR imágenes de Tomografía"
-ae.add_requested_context(CTImageStorage)
+ae.add_requested_context(CT_IMAGE_STORAGE)
 
 print(f"[✓] Aplicación DICOM creada")
 print(f"    - Puedo enviar: CT (Tomografía)")

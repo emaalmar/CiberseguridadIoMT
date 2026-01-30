@@ -15,7 +15,7 @@ CERT_FILE = 'hospital.crt'
 KEY_FILE = 'hospital.key'
 
 def iniciar_servidor_seguro():
-    print(f"--- SERVIDOR HL7 SEGURO (TLS ENCRIPTADO) ---")
+    print("--- SERVIDOR HL7 SEGURO (TLS ENCRIPTADO) ---")
     
     # 1. CREAR CONTEXTO SSL
     # Le decimos: "Este contexto es para un SERVIDOR"
@@ -23,7 +23,7 @@ def iniciar_servidor_seguro():
     # Cargamos nuestra identidad
     context.load_cert_chain(certfile=CERT_FILE, keyfile=KEY_FILE)
     
-    print(f"[.] Cargando certificados... OK")
+    print("[.] Cargando certificados... OK")
     print(f"[.] Escuchando de forma segura en el puerto {PORT}...")
     
     # 2. CREAR SOCKET TCP NORMAL
@@ -58,7 +58,7 @@ def iniciar_servidor_seguro():
                     h = hl7.parse(mensaje_texto)
                     if len(h) > 1:
                         print("-" * 40)
-                        print(f" MENSAJE SEGURO RECIBIDO")
+                        print(" MENSAJE SEGURO RECIBIDO")
                         print(f" PACIENTE:    {h[1][5]}") # PID-5
                         print("-" * 40)
                         
@@ -70,12 +70,12 @@ def iniciar_servidor_seguro():
                         conn.sendall(ack_mllp)
                         print("[Out] ACK Encriptado enviado.")
                         
-                except Exception as e:
+                except (ValueError, UnicodeDecodeError, IndexError) as e:
                     print(f"❌ Error lógico: {e}")
                     
         except ssl.SSLError as e:
             print(f"⛔ Error de Seguridad (Handshake fallido): {e}")
-        except Exception as e:
+        except OSError as e:
             print(f"Error general: {e}")
 
 if __name__ == "__main__":
